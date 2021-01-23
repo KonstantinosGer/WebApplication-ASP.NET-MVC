@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyModelStoreContainer" CdmEntityContainer="pubsEntities">
+    <EntitySetMapping Name="authors">
+      <EntityTypeMapping TypeName="MyModel.authors">
+        <MappingFragment StoreEntitySet="authors">
+          <ScalarProperty Name="au_id" ColumnName="au_id" />
+          <ScalarProperty Name="au_lname" ColumnName="au_lname" />
+          <ScalarProperty Name="au_fname" ColumnName="au_fname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="contract" ColumnName="contract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employee">
+      <EntityTypeMapping TypeName="MyModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="minit" ColumnName="minit" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="job_id" ColumnName="job_id" />
+          <ScalarProperty Name="job_lvl" ColumnName="job_lvl" />
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jobs">
+      <EntityTypeMapping TypeName="MyModel.jobs">
+        <MappingFragment StoreEntitySet="jobs">
+          <ScalarProperty Name="job_id" ColumnName="job_id" />
+          <ScalarProperty Name="job_desc" ColumnName="job_desc" />
+          <ScalarProperty Name="min_lvl" ColumnName="min_lvl" />
+          <ScalarProperty Name="max_lvl" ColumnName="max_lvl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pub_info">
+      <EntityTypeMapping TypeName="MyModel.pub_info">
+        <MappingFragment StoreEntitySet="pub_info">
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="pr_info" ColumnName="pr_info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publishers">
+      <EntityTypeMapping TypeName="MyModel.publishers">
+        <MappingFragment StoreEntitySet="publishers">
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="pub_name" ColumnName="pub_name" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sales">
+      <EntityTypeMapping TypeName="MyModel.sales">
+        <MappingFragment StoreEntitySet="sales">
+          <ScalarProperty Name="stor_id" ColumnName="stor_id" />
+          <ScalarProperty Name="ord_num" ColumnName="ord_num" />
+          <ScalarProperty Name="ord_date" ColumnName="ord_date" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="payterms" ColumnName="payterms" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stores">
+      <EntityTypeMapping TypeName="MyModel.stores">
+        <MappingFragment StoreEntitySet="stores">
+          <ScalarProperty Name="stor_id" ColumnName="stor_id" />
+          <ScalarProperty Name="stor_name" ColumnName="stor_name" />
+          <ScalarProperty Name="stor_address" ColumnName="stor_address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="titleauthor">
+      <EntityTypeMapping TypeName="MyModel.titleauthor">
+        <MappingFragment StoreEntitySet="titleauthor">
+          <ScalarProperty Name="au_id" ColumnName="au_id" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="au_ord" ColumnName="au_ord" />
+          <ScalarProperty Name="royaltyper" ColumnName="royaltyper" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="titles">
+      <EntityTypeMapping TypeName="MyModel.titles">
+        <MappingFragment StoreEntitySet="titles">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="advance" ColumnName="advance" />
+          <ScalarProperty Name="royalty" ColumnName="royalty" />
+          <ScalarProperty Name="ytd_sales" ColumnName="ytd_sales" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="pubdate" ColumnName="pubdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="discounts">
+      <EntityTypeMapping TypeName="MyModel.discounts">
+        <MappingFragment StoreEntitySet="discounts">
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="stor_id" ColumnName="stor_id" />
+          <ScalarProperty Name="lowqty" ColumnName="lowqty" />
+          <ScalarProperty Name="highqty" ColumnName="highqty" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roysched">
+      <EntityTypeMapping TypeName="MyModel.roysched">
+        <MappingFragment StoreEntitySet="roysched">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="lorange" ColumnName="lorange" />
+          <ScalarProperty Name="hirange" ColumnName="hirange" />
+          <ScalarProperty Name="royalty" ColumnName="royalty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="titleview">
+      <EntityTypeMapping TypeName="MyModel.titleview">
+        <MappingFragment StoreEntitySet="titleview">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="au_ord" ColumnName="au_ord" />
+          <ScalarProperty Name="au_lname" ColumnName="au_lname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="ytd_sales" ColumnName="ytd_sales" />
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="byroyalty" FunctionName="MyModel.Store.byroyalty" />
+    <FunctionImportMapping FunctionImportName="reptq1" FunctionName="MyModel.Store.reptq1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyModel.reptq1_Result">
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="avg_price" ColumnName="avg_price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="reptq2" FunctionName="MyModel.Store.reptq2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyModel.reptq2_Result">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="avg_ytd_sales" ColumnName="avg_ytd_sales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="reptq3" FunctionName="MyModel.Store.reptq3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyModel.reptq3_Result">
+          <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cnt" ColumnName="cnt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

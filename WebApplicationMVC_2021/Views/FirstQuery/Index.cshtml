@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>First Query</h2>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label>Insert number X</label>
+        <input type="text" class="form-control" id="numberx" name="numberx" placeholder="Type Number X">
+    </div>
+    <div class="form-group">
+        <label>From Date</label>
+        <input type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="">
+    </div>
+    <div class="form-group">
+        <label>To Date</label>
+        <input type="date" class="form-control" id="dateTo" name="dateTo" placeholder="">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+
+</form>
+
+<table class="table">
+    <tr>
+    <!--<th>
+    Authors id
+    </th>
+    <th>
+        Authors first name
+    </th>
+    <th>
+        Authors last name
+    </th>
+    <th>
+        Authors phone
+    </th>-->
+        <th>
+            Header
+        </th>
+        <th>
+            Total Quantity
+        </th>
+    </tr>
+
+    @foreach (var item in ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.FirstQueryClass>)
+    {
+    <tr>
+        <!--<td>
+            item.authorslist.au_id
+        </td>
+        <td>
+            item.authorslist.au_fname
+        </td>
+        <td>
+            item.authorslist.au_lname
+        </td>
+        <th>
+            item.authorslist.phone
+        </th>-->
+        <td>
+            @item.Header
+        </td>
+        <th>
+            @item.TotalQuantity
+        </th>
+    </tr>
+        }
+
+    </table>
