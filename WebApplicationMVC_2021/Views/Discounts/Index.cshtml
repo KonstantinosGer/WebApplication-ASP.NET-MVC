@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.discounttype)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.lowqty)
         </th>
         <th>
@@ -26,6 +29,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.discounttype)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.lowqty)
         </td>
         <td>
@@ -35,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.stores.stor_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id = item.discount_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.discount_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.discount_id })
         </td>
     </tr>
 }

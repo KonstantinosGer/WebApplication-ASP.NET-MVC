@@ -17,6 +17,7 @@ namespace WebApplicationMVC_2021.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public titles()
         {
+            this.roysched = new HashSet<roysched>();
             this.sales = new HashSet<sales>();
             this.titleauthor = new HashSet<titleauthor>();
         }
@@ -34,9 +35,10 @@ namespace WebApplicationMVC_2021.Models
     
         public virtual publishers publishers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<roysched> roysched { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sales> sales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<titleauthor> titleauthor { get; set; }
-        public virtual roysched roysched { get; set; }
     }
 }

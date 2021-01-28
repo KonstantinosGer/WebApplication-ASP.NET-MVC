@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MyModelStoreContainer" CdmEntityContainer="pubsEntities">
+  <EntityContainerMapping StorageEntityContainer="pubsModelStoreContainer" CdmEntityContainer="pubsEntities">
     <EntitySetMapping Name="authors">
-      <EntityTypeMapping TypeName="MyModel.authors">
+      <EntityTypeMapping TypeName="pubsModel.authors">
         <MappingFragment StoreEntitySet="authors">
           <ScalarProperty Name="au_id" ColumnName="au_id" />
           <ScalarProperty Name="au_lname" ColumnName="au_lname" />
@@ -16,8 +16,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="discounts">
+      <EntityTypeMapping TypeName="pubsModel.discounts">
+        <MappingFragment StoreEntitySet="discounts">
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="stor_id" ColumnName="stor_id" />
+          <ScalarProperty Name="lowqty" ColumnName="lowqty" />
+          <ScalarProperty Name="highqty" ColumnName="highqty" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="employee">
-      <EntityTypeMapping TypeName="MyModel.employee">
+      <EntityTypeMapping TypeName="pubsModel.employee">
         <MappingFragment StoreEntitySet="employee">
           <ScalarProperty Name="emp_id" ColumnName="emp_id" />
           <ScalarProperty Name="fname" ColumnName="fname" />
@@ -31,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="jobs">
-      <EntityTypeMapping TypeName="MyModel.jobs">
+      <EntityTypeMapping TypeName="pubsModel.jobs">
         <MappingFragment StoreEntitySet="jobs">
           <ScalarProperty Name="job_id" ColumnName="job_id" />
           <ScalarProperty Name="job_desc" ColumnName="job_desc" />
@@ -41,7 +53,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="pub_info">
-      <EntityTypeMapping TypeName="MyModel.pub_info">
+      <EntityTypeMapping TypeName="pubsModel.pub_info">
         <MappingFragment StoreEntitySet="pub_info">
           <ScalarProperty Name="pub_id" ColumnName="pub_id" />
           <ScalarProperty Name="logo" ColumnName="logo" />
@@ -50,7 +62,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="publishers">
-      <EntityTypeMapping TypeName="MyModel.publishers">
+      <EntityTypeMapping TypeName="pubsModel.publishers">
         <MappingFragment StoreEntitySet="publishers">
           <ScalarProperty Name="pub_id" ColumnName="pub_id" />
           <ScalarProperty Name="pub_name" ColumnName="pub_name" />
@@ -60,8 +72,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="roysched">
+      <EntityTypeMapping TypeName="pubsModel.roysched">
+        <MappingFragment StoreEntitySet="roysched">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="lorange" ColumnName="lorange" />
+          <ScalarProperty Name="hirange" ColumnName="hirange" />
+          <ScalarProperty Name="royalty" ColumnName="royalty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sales">
-      <EntityTypeMapping TypeName="MyModel.sales">
+      <EntityTypeMapping TypeName="pubsModel.sales">
         <MappingFragment StoreEntitySet="sales">
           <ScalarProperty Name="stor_id" ColumnName="stor_id" />
           <ScalarProperty Name="ord_num" ColumnName="ord_num" />
@@ -73,7 +95,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="stores">
-      <EntityTypeMapping TypeName="MyModel.stores">
+      <EntityTypeMapping TypeName="pubsModel.stores">
         <MappingFragment StoreEntitySet="stores">
           <ScalarProperty Name="stor_id" ColumnName="stor_id" />
           <ScalarProperty Name="stor_name" ColumnName="stor_name" />
@@ -85,7 +107,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="titleauthor">
-      <EntityTypeMapping TypeName="MyModel.titleauthor">
+      <EntityTypeMapping TypeName="pubsModel.titleauthor">
         <MappingFragment StoreEntitySet="titleauthor">
           <ScalarProperty Name="au_id" ColumnName="au_id" />
           <ScalarProperty Name="title_id" ColumnName="title_id" />
@@ -95,7 +117,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="titles">
-      <EntityTypeMapping TypeName="MyModel.titles">
+      <EntityTypeMapping TypeName="pubsModel.titles">
         <MappingFragment StoreEntitySet="titles">
           <ScalarProperty Name="title_id" ColumnName="title_id" />
           <ScalarProperty Name="title" ColumnName="title" />
@@ -110,29 +132,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="discounts">
-      <EntityTypeMapping TypeName="MyModel.discounts">
-        <MappingFragment StoreEntitySet="discounts">
-          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
-          <ScalarProperty Name="stor_id" ColumnName="stor_id" />
-          <ScalarProperty Name="lowqty" ColumnName="lowqty" />
-          <ScalarProperty Name="highqty" ColumnName="highqty" />
-          <ScalarProperty Name="discount" ColumnName="discount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="roysched">
-      <EntityTypeMapping TypeName="MyModel.roysched">
-        <MappingFragment StoreEntitySet="roysched">
-          <ScalarProperty Name="title_id" ColumnName="title_id" />
-          <ScalarProperty Name="lorange" ColumnName="lorange" />
-          <ScalarProperty Name="hirange" ColumnName="hirange" />
-          <ScalarProperty Name="royalty" ColumnName="royalty" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="titleview">
-      <EntityTypeMapping TypeName="MyModel.titleview">
+      <EntityTypeMapping TypeName="pubsModel.titleview">
         <MappingFragment StoreEntitySet="titleview">
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="au_ord" ColumnName="au_ord" />
@@ -143,27 +144,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="byroyalty" FunctionName="MyModel.Store.byroyalty" />
-    <FunctionImportMapping FunctionImportName="reptq1" FunctionName="MyModel.Store.reptq1">
+    <FunctionImportMapping FunctionImportName="byroyalty" FunctionName="pubsModel.Store.byroyalty" />
+    <FunctionImportMapping FunctionImportName="reptq1" FunctionName="pubsModel.Store.reptq1">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="MyModel.reptq1_Result">
+        <ComplexTypeMapping TypeName="pubsModel.reptq1_Result">
           <ScalarProperty Name="pub_id" ColumnName="pub_id" />
           <ScalarProperty Name="avg_price" ColumnName="avg_price" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="reptq2" FunctionName="MyModel.Store.reptq2">
+    <FunctionImportMapping FunctionImportName="reptq2" FunctionName="pubsModel.Store.reptq2">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="MyModel.reptq2_Result">
+        <ComplexTypeMapping TypeName="pubsModel.reptq2_Result">
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="pub_id" ColumnName="pub_id" />
           <ScalarProperty Name="avg_ytd_sales" ColumnName="avg_ytd_sales" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="reptq3" FunctionName="MyModel.Store.reptq3">
+    <FunctionImportMapping FunctionImportName="reptq3" FunctionName="pubsModel.Store.reptq3">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="MyModel.reptq3_Result">
+        <ComplexTypeMapping TypeName="pubsModel.reptq3_Result">
           <ScalarProperty Name="pub_id" ColumnName="pub_id" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="cnt" ColumnName="cnt" />

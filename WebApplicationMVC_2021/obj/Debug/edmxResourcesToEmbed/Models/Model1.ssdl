@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="MyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="pubsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="authors">
     <Key>
       <PropertyRef Name="au_id" />
@@ -14,18 +14,16 @@
     <Property Name="zip" Type="char" MaxLength="5" />
     <Property Name="contract" Type="bit" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'pubs.dbo.discounts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="discounts">
     <Key>
-      <PropertyRef Name="discounttype" />
-      <PropertyRef Name="discount" />
+      <PropertyRef Name="discount_id" />
     </Key>
     <Property Name="discounttype" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="stor_id" Type="char" MaxLength="4" />
     <Property Name="lowqty" Type="smallint" />
     <Property Name="highqty" Type="smallint" />
     <Property Name="discount" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="discount_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="employee">
     <Key>
@@ -67,16 +65,17 @@ warning 6002: The table/view 'pubs.dbo.discounts' does not have a primary key de
     <Property Name="state" Type="char" MaxLength="2" />
     <Property Name="country" Type="varchar" MaxLength="30" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'pubs.dbo.roysched' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="roysched">
     <Key>
       <PropertyRef Name="title_id" />
+      <PropertyRef Name="lorange" />
+      <PropertyRef Name="hirange" />
+      <PropertyRef Name="royalty" />
     </Key>
     <Property Name="title_id" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="lorange" Type="int" />
-    <Property Name="hirange" Type="int" />
-    <Property Name="royalty" Type="int" />
+    <Property Name="lorange" Type="int" Nullable="false" />
+    <Property Name="hirange" Type="int" Nullable="false" />
+    <Property Name="royalty" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sales">
     <Key>
@@ -191,7 +190,7 @@ warning 6002: The table/view 'pubs.dbo.titleview' does not have a primary key de
   </Association>
   <Association Name="FK__roysched__title___3A81B327">
     <End Role="titles" Type="Self.titles" Multiplicity="1" />
-    <End Role="roysched" Type="Self.roysched" Multiplicity="0..1" />
+    <End Role="roysched" Type="Self.roysched" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="titles">
         <PropertyRef Name="title_id" />
@@ -271,33 +270,18 @@ warning 6002: The table/view 'pubs.dbo.titleview' does not have a primary key de
     <Parameter Name="hilimit" Type="money" Mode="In" />
     <Parameter Name="type" Type="char" Mode="In" />
   </Function>
-  <EntityContainer Name="MyModelStoreContainer">
+  <EntityContainer Name="pubsModelStoreContainer">
     <EntitySet Name="authors" EntityType="Self.authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="discounts" EntityType="Self.discounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="jobs" EntityType="Self.jobs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pub_info" EntityType="Self.pub_info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="publishers" EntityType="Self.publishers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roysched" EntityType="Self.roysched" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sales" EntityType="Self.sales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="stores" EntityType="Self.stores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="titleauthor" EntityType="Self.titleauthor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="titles" EntityType="Self.titles" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="discounts" EntityType="Self.discounts" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [discounts].[discounttype] AS [discounttype], 
-    [discounts].[stor_id] AS [stor_id], 
-    [discounts].[lowqty] AS [lowqty], 
-    [discounts].[highqty] AS [highqty], 
-    [discounts].[discount] AS [discount]
-    FROM [dbo].[discounts] AS [discounts]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="roysched" EntityType="Self.roysched" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [roysched].[title_id] AS [title_id], 
-    [roysched].[lorange] AS [lorange], 
-    [roysched].[hirange] AS [hirange], 
-    [roysched].[royalty] AS [royalty]
-    FROM [dbo].[roysched] AS [roysched]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="titleview" EntityType="Self.titleview" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [titleview].[title] AS [title], 

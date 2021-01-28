@@ -10,25 +10,6 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<form class="form-horizontal">
-    <div class="form-group">
-        <label>Insert number X</label>
-        <input type="text" class="form-control" id="numberx" name="numberx" placeholder="Type Number X">
-    </div>
-    <div class="form-group">
-        <label>From Date</label>
-        <input type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="">
-    </div>
-    <div class="form-group">
-        <label>To Date</label>
-        <input type="date" class="form-control" id="dateTo" name="dateTo" placeholder="">
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Search</button>
-    </div>
-
-</form>
-
 <table class="table">
     <tr>
         <th>
@@ -40,23 +21,7 @@
         <th>
             @Html.DisplayNameFor(model => model.payterms)
         </th>
-        <th>
-            <!--Html.DisplayNameFor(model => model.stores.stor_name)-->
-        </th>
-        <th>
-            <!--Html.DisplayNameFor(model => model.titles.title)-->
-        </th>
-        <th>
-            <!--Html.DisplayNameFor(model => model.authors.au_fname)-->
-        </th>
-        <th>
-            <!--Html.DisplayNameFor(model => model.authors.au_lname)-->
-        </th>
-        <th>
-            <!--Html.DisplayNameFor(model => model.authors.au_id)-->
-        </th>
-            <th></th>
-        </tr>
+    </tr>
 
     @foreach (var item in Model) {
         <tr>
@@ -70,25 +35,10 @@
                 @Html.DisplayFor(modelItem => item.payterms)
             </td>
             <td>
-                <!--Html.DisplayFor(modelItem => item.stores.stor_name)-->
-            </td>
             <td>
-                <!--Html.DisplayFor(modelItem => item.titles.title)-->
-            </td>
-            <th>
-                <!--Html.DisplayFor(modelItem => item.authors.au_fname)-->
-            </th>
-            <th>
-                <!--Html.DisplayFor(modelItem => item.authors.au_lname)-->
-            </th>
-            <th>
-                <!--Html.DisplayFor(modelItem => item.authors.au_id)-->
-            </th>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                @Html.ActionLink("Details2", "Details2", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id=item.stor_id + item.ord_num + item.title_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.stor_id + item.ord_num + item.title_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.stor_id + item.ord_num + item.title_id })
             </td>
         </tr>
     }

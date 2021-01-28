@@ -22,7 +22,7 @@ namespace WebApplicationMVC_2021.Controllers
         }
 
         // GET: Discounts/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
@@ -62,7 +62,7 @@ namespace WebApplicationMVC_2021.Controllers
         }
 
         // GET: Discounts/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id) //string id
         {
             if (id == null)
             {
@@ -95,7 +95,7 @@ namespace WebApplicationMVC_2021.Controllers
         }
 
         // GET: Discounts/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
@@ -112,7 +112,7 @@ namespace WebApplicationMVC_2021.Controllers
         // POST: Discounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             discounts discounts = db.discounts.Find(id);
             db.discounts.Remove(discounts);
@@ -176,6 +176,14 @@ namespace WebApplicationMVC_2021.Controllers
         public ActionResult GoToTitles()
         {
             return RedirectToAction("Index", "Titles");
+        }
+        public ActionResult GoToFirstQuery()
+        {
+            return RedirectToAction("Index", "FirstQuery");
+        }
+        public ActionResult GoToSecondQuery()
+        {
+            return RedirectToAction("Index", "SecondQuery");
         }
     }
 }

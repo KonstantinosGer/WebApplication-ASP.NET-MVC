@@ -87,7 +87,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sales sales = db.sales.Find(id);
+            sales sales = db.sales.SingleOrDefault(m => m.stor_id + m.ord_num + m.title_id == id);
             if (sales == null)
             {
                 return HttpNotFound();
@@ -130,7 +130,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sales sales = db.sales.Find(id);
+            sales sales = db.sales.SingleOrDefault(m => m.stor_id + m.ord_num + m.title_id == id);
             if (sales == null)
             {
                 return HttpNotFound();
@@ -165,7 +165,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sales sales = db.sales.Find(id);
+            sales sales = db.sales.SingleOrDefault(m => m.stor_id + m.ord_num + m.title_id == id);
             if (sales == null)
             {
                 return HttpNotFound();
@@ -178,7 +178,7 @@ namespace WebApplicationMVC_2021.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            sales sales = db.sales.Find(id);
+            sales sales = db.sales.SingleOrDefault(m => m.stor_id + m.ord_num + m.title_id == id);
             db.sales.Remove(sales);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -240,6 +240,14 @@ namespace WebApplicationMVC_2021.Controllers
         public ActionResult GoToTitles()
         {
             return RedirectToAction("Index", "Titles");
+        }
+        public ActionResult GoToFirstQuery()
+        {
+            return RedirectToAction("Index", "FirstQuery");
+        }
+        public ActionResult GoToSecondQuery()
+        {
+            return RedirectToAction("Index", "SecondQuery");
         }
     }
 }

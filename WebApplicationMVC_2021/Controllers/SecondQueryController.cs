@@ -7,24 +7,29 @@ using WebApplicationMVC_2021.Models;
 
 namespace WebApplicationMVC_2021.Controllers
 {
-    public class FirstQueryController : Controller
+    public class SecondQueryController : Controller
     {
-        // GET: FirstQuery
+        // GET: SecondQuery
         public ActionResult Index()
         {
             pubsEntities db = new pubsEntities();
             List<sales> saleslist = db.sales.ToList();
-            List<titleauthor> titleauthorlist = db.titleauthor.ToList();
-            List<authors> authorslist = db.authors.ToList();
+            List<titles> titleslist = db.titles.ToList();
+            List<stores> storeslist = db.stores.ToList();
 
-            int x = 100;
+            string prefix = "";
+            string suffix = "";
             //int x = 0;
             DateTime startDate = new DateTime(1992, 06, 15);
             DateTime endDate = DateTime.Now;
-            if (Request.QueryString["numberX"] != null && Request.QueryString["numberX"] != "")
+            if (Request.QueryString["storeNamePrefix"] != null && Request.QueryString["storeNamePrefix"] != "")
             {
-                int.TryParse(Request.QueryString["numberX"], out int numberx);
-                x = numberx;
+                prefix = Request.QueryString["storeNamePrefix"];
+            }
+
+            if (Request.QueryString["storeNameSuffix"] != null && Request.QueryString["storeNameSuffix"] != "")
+            {
+                suffix = Request.QueryString["storeNameSuffix"];
             }
 
             if (Request.QueryString["dateFrom"] != null && Request.QueryString["dateFrom"] != "")
@@ -40,39 +45,22 @@ namespace WebApplicationMVC_2021.Controllers
             }
 
 
-            /*ViewData["jointables"] = (from s in saleslist
-                                      where s.ord_date >= startDate && s.ord_date <= endDate
-                                      join ta in titleauthorlist on s.title_id equals ta.title_id into table1
-                                      from ta in table1.DefaultIfEmpty()
-                                      join a in authorslist on ta.au_id equals a.au_id into table2
-                                      from a in table2.DefaultIfEmpty()
-                                      group s by s.qty into odg
-                                      //group s by new { s.qty, saleslist = s, titleauthorlist = ta , authorslist = a} into sumgroup
-                                      //group s by new { s.qty, ta, a} into g
-                                      select new FirstQueryClass
-                                      { saleslist = s, titleauthorlist = ta,
-                                          authorslist = a,
-                                          
-                                          //Header = odg.Key,
-                                          //TotalQuantity = odg.Sum(m => m.qty)
-                                          Header = odg.Key,
-                                          TotalQuantity = odg.Sum(s => s.qty)
-                                      }).Take(x);*/
-
-            ViewData["jointables"] = (from a in authorslist
-                                      join ta in titleauthorlist on a.au_id equals ta.au_id
-                                      join s in saleslist on ta.title_id equals s.title_id
-                                      where s.ord_date >= startDate && s.ord_date <= endDate
+            ViewData["jointables"] = (from st in storeslist
+                                      join s in saleslist on st.stor_id equals s.stor_id
+                                      join t in titleslist on s.title_id equals t.title_id
+                                      where s.ord_date >= startDate && s.ord_date <= endDate && st.stor_name.StartsWith(prefix) && st.stor_name.EndsWith(suffix)
                                       //group s by new { /*ta.au_id, a.phone*/ s, ta, a } into g
                                       //group s by new { s, ta, a, s.title_id, a.au_id, a.au_lname, a.au_fname, a.phone } into g
-                                      group s by new { a, /*s.title_id*/ } into g
-                                      select new FirstQueryClass
+                                      group s by new { s, st, t} into g
+                                      select new SecondQueryClass
                                       {
                                           //saleslist = g.Key.s,
                                           //titleauthorlist = g.Key.ta,
-                                          authorslist = g.Key.a,
-                                          Amount = g.Sum(s => s.qty)
-                                      }).OrderByDescending(i => i.Amount).Take(x);
+                                          saleslist = g.Key.s,
+                                          storeslist = g.Key.st,
+                                          titleslist = g.Key.t
+                                      });
+
 
             return View(ViewData["jointables"]);
         }

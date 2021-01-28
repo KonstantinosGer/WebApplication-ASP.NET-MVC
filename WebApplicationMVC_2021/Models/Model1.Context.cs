@@ -28,16 +28,16 @@ namespace WebApplicationMVC_2021.Models
         }
     
         public virtual DbSet<authors> authors { get; set; }
+        public virtual DbSet<discounts> discounts { get; set; }
         public virtual DbSet<employee> employee { get; set; }
         public virtual DbSet<jobs> jobs { get; set; }
         public virtual DbSet<pub_info> pub_info { get; set; }
         public virtual DbSet<publishers> publishers { get; set; }
+        public virtual DbSet<roysched> roysched { get; set; }
         public virtual DbSet<sales> sales { get; set; }
         public virtual DbSet<stores> stores { get; set; }
         public virtual DbSet<titleauthor> titleauthor { get; set; }
         public virtual DbSet<titles> titles { get; set; }
-        public virtual DbSet<discounts> discounts { get; set; }
-        public virtual DbSet<roysched> roysched { get; set; }
         public virtual DbSet<titleview> titleview { get; set; }
     
         public virtual ObjectResult<string> byroyalty(Nullable<int> percentage)

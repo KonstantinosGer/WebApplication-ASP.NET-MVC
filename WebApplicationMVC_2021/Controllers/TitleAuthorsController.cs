@@ -28,7 +28,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            titleauthor titleauthor = db.titleauthor.Find(id);
+            titleauthor titleauthor = db.titleauthor.SingleOrDefault(m => m.au_id + m.title_id == id);
             if (titleauthor == null)
             {
                 return HttpNotFound();
@@ -70,7 +70,8 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            titleauthor titleauthor = db.titleauthor.Find(id);
+            //titleauthor titleauthor = db.titleauthor.Find(id);
+            titleauthor titleauthor = db.titleauthor.SingleOrDefault(m => m.au_id + m.title_id == id);
             if (titleauthor == null)
             {
                 return HttpNotFound();
@@ -105,7 +106,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            titleauthor titleauthor = db.titleauthor.Find(id);
+            titleauthor titleauthor = db.titleauthor.SingleOrDefault(m => m.au_id + m.title_id == id);
             if (titleauthor == null)
             {
                 return HttpNotFound();
@@ -118,7 +119,7 @@ namespace WebApplicationMVC_2021.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            titleauthor titleauthor = db.titleauthor.Find(id);
+            titleauthor titleauthor = db.titleauthor.SingleOrDefault(m => m.au_id + m.title_id == id);
             db.titleauthor.Remove(titleauthor);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -180,6 +181,14 @@ namespace WebApplicationMVC_2021.Controllers
         public ActionResult GoToTitles()
         {
             return RedirectToAction("Index", "Titles");
+        }
+        public ActionResult GoToFirstQuery()
+        {
+            return RedirectToAction("Index", "FirstQuery");
+        }
+        public ActionResult GoToSecondQuery()
+        {
+            return RedirectToAction("Index", "SecondQuery");
         }
     }
 }

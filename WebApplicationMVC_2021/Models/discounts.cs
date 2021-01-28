@@ -19,6 +19,7 @@ namespace WebApplicationMVC_2021.Models
         public Nullable<short> lowqty { get; set; }
         public Nullable<short> highqty { get; set; }
         public decimal discount { get; set; }
+        public int discount_id { get; set; }
     
         public virtual stores stores { get; set; }
     }

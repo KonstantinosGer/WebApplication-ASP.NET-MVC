@@ -15,9 +15,9 @@ namespace WebApplicationMVC_2021.Models
     public partial class roysched
     {
         public string title_id { get; set; }
-        public Nullable<int> lorange { get; set; }
-        public Nullable<int> hirange { get; set; }
-        public Nullable<int> royalty { get; set; }
+        public int lorange { get; set; }
+        public int hirange { get; set; }
+        public int royalty { get; set; }
     
         public virtual titles titles { get; set; }
     }

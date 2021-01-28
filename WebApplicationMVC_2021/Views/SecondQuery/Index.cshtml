@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Second Query</h2>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label>Store name prefix (case sensitive)</label>
+        <input type="text" class="form-control" id="storeNamePrefix" name="storeNamePrefix" placeholder="Type store's name prefix">
+    </div>
+    <div class="form-group">
+        <label>Store name suffix (case sensitive)</label>
+        <input type="text" class="form-control" id="storeNameSuffix" name="storeNameSuffix" placeholder="Type store's name suffix">
+    </div>
+    <div class="form-group">
+        <label>From Date</label>
+        <input type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="">
+    </div>
+    <div class="form-group">
+        <label>To Date</label>
+        <input type="date" class="form-control" id="dateTo" name="dateTo" placeholder="">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+            Store id
+        </th>
+        <th>
+            Store name
+        </th>
+        <th>
+            Book title
+        </th>
+        <!--<th>
+            Book's title
+        </th>-->
+    </tr>
+
+    @foreach (var item in /*Model*/ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.SecondQueryClass>)
+    {
+        <tr>
+            <td>
+                @item.saleslist.ord_num
+            </td>
+            <td>
+                @item.storeslist.stor_id
+            </td>
+            <td>
+                @item.storeslist.stor_name
+            </td>
+            <td>
+                @item.titleslist.title
+            </td>
+            <!--<td>
+                item.saleslist.title_id
+            </td>-->
+        </tr>
+    }
+
+</table>

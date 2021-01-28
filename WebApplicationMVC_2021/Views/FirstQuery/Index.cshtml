@@ -21,53 +21,82 @@
     <div class="form-group">
         <button type="submit" class="btn btn-success">Search</button>
     </div>
-
 </form>
 
 <table class="table">
     <tr>
-    <!--<th>
-    Authors id
-    </th>
-    <th>
-        Authors first name
-    </th>
-    <th>
-        Authors last name
-    </th>
-    <th>
-        Authors phone
-    </th>-->
         <th>
-            Header
+            Total book sales
         </th>
         <th>
-            Total Quantity
+            Author's id
         </th>
-    </tr>
-
-    @foreach (var item in ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.FirstQueryClass>)
-    {
-    <tr>
-        <!--<td>
-            item.authorslist.au_id
-        </td>
-        <td>
-            item.authorslist.au_fname
-        </td>
-        <td>
-            item.authorslist.au_lname
-        </td>
         <th>
-            item.authorslist.phone
+            Author's first name
+        </th>
+        <th>
+            Author's last name
+        </th>
+        <th>
+            Author's phone
+        </th>
+        <th>
+            Author's address
+        </th>
+        <th>
+            Author's city
+        </th>
+        <th>
+            Author's state
+        </th>
+        <th>
+            Author's zip
+        </th>
+        <th>
+            Author's contract
+        </th>
+        <!--<th>
+            Book's title
         </th>-->
-        <td>
-            @item.Header
-        </td>
-        <th>
-            @item.TotalQuantity
-        </th>
     </tr>
-        }
 
-    </table>
+    @foreach (var item in /*Model*/ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.FirstQueryClass>)
+    {
+        <tr>
+            <td>
+                @item.Amount
+            </td>
+            <td>
+                @item.authorslist.au_id
+            </td>
+            <td>
+                @item.authorslist.au_fname
+            </td>
+            <td>
+                @item.authorslist.au_lname
+            </td>
+            <td>
+                @item.authorslist.phone
+            </td>
+            <td>
+                @item.authorslist.address
+            </td>
+            <td>
+                @item.authorslist.city
+            </td>
+            <td>
+                @item.authorslist.state
+            </td>
+            <td>
+                @item.authorslist.zip
+            </td>
+            <td>
+                @item.authorslist.contract
+            </td>
+            <!--<td>
+                item.saleslist.title_id
+            </td>-->
+        </tr>
+    }
+
+</table>

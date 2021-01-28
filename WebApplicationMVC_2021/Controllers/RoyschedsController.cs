@@ -28,7 +28,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            roysched roysched = db.roysched.Find(id);
+            roysched roysched = db.roysched.SingleOrDefault(m => m.title_id + m.lorange + m.hirange + m.royalty == id);
             if (roysched == null)
             {
                 return HttpNotFound();
@@ -68,7 +68,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            roysched roysched = db.roysched.Find(id);
+            roysched roysched = db.roysched.SingleOrDefault(m => m.title_id + m.lorange + m.hirange + m.royalty == id);
             if (roysched == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace WebApplicationMVC_2021.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            roysched roysched = db.roysched.Find(id);
+            roysched roysched = db.roysched.SingleOrDefault(m => m.title_id + m.lorange + m.hirange + m.royalty == id);
             if (roysched == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace WebApplicationMVC_2021.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            roysched roysched = db.roysched.Find(id);
+            roysched roysched = db.roysched.SingleOrDefault(m => m.title_id + m.lorange + m.hirange + m.royalty == id);
             db.roysched.Remove(roysched);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -176,6 +176,14 @@ namespace WebApplicationMVC_2021.Controllers
         public ActionResult GoToTitles()
         {
             return RedirectToAction("Index", "Titles");
+        }
+        public ActionResult GoToFirstQuery()
+        {
+            return RedirectToAction("Index", "FirstQuery");
+        }
+        public ActionResult GoToSecondQuery()
+        {
+            return RedirectToAction("Index", "SecondQuery");
         }
     }
 }

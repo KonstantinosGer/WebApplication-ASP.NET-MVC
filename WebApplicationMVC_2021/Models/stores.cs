@@ -17,8 +17,8 @@ namespace WebApplicationMVC_2021.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public stores()
         {
-            this.sales = new HashSet<sales>();
             this.discounts = new HashSet<discounts>();
+            this.sales = new HashSet<sales>();
         }
     
         public string stor_id { get; set; }
@@ -29,8 +29,8 @@ namespace WebApplicationMVC_2021.Models
         public string zip { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sales> sales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<discounts> discounts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<sales> sales { get; set; }
     }
 }

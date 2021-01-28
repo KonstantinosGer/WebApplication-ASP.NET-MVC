@@ -181,5 +181,13 @@ namespace WebApplicationMVC_2021.Controllers
         {
             return RedirectToAction("Index", "Titles");
         }
+        public ActionResult GoToFirstQuery()
+        {
+            return RedirectToAction("Index", "FirstQuery");
+        }
+        public ActionResult GoToSecondQuery()
+        {
+            return RedirectToAction("Index", "SecondQuery");
+        }
     }
 }
