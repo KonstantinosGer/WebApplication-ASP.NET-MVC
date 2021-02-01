@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.discount_id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.discounttype)
         </th>
         <th>
@@ -28,6 +31,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.discount_id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.discounttype)
         </td>

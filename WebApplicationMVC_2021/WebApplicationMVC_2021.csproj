@@ -148,12 +148,15 @@
     <Compile Include="Models\authors.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthorsMetadata.cs" />
     <Compile Include="Models\discounts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DiscountsMetadata.cs" />
     <Compile Include="Models\employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeesMetadata.cs" />
     <Compile Include="Models\FirstQueryClass.cs" />
     <Compile Include="Models\jobs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -173,6 +176,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\publishers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
