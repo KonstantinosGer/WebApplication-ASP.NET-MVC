@@ -10,9 +10,9 @@ namespace WebApplicationMVC_2021.Models
     {
         private pubsEntities db = new pubsEntities();
 
-        [Display(Name = "Author Id")]
+        [Display(Name = "Author ID")]
         [Required(ErrorMessage = "This field is required!")]
-        //[StringLength(11, MinimumLength = 11, ErrorMessage = "Author Id must be 11 characters long!")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "Author ID must be 11 characters!")]
         public string au_id;
 
         [Display(Name = "Last Name")]
@@ -27,9 +27,7 @@ namespace WebApplicationMVC_2021.Models
 
         [Display(Name = "Phone")]
         [Required(ErrorMessage = "This field is required!")]
-        [Phone(ErrorMessage ="Wrong phone")]
-        //[Phone(ErrorMessage = "Wrong input format!")]
-        //[Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
+        [Phone(ErrorMessage = "Wrong phone")]
         public string phone;
 
         [Display(Name = "Address")]
@@ -45,10 +43,7 @@ namespace WebApplicationMVC_2021.Models
         public string state;
 
         [Display(Name = "Zip Code")]
-        //[StringLength(5, MinimumLength = 5, ErrorMessage = "Wrong input zip code format!")]
-        //[DisplayFormat(DataFormatString ="")]
-        [Range(10400,85999, ErrorMessage = "Wrong zip code format!")]
-        //[Range(5, 5, ErrorMessage = "Wrong input zip code format!")]
+        [Range(10400, 85999, ErrorMessage = "Wrong zip code format!")]
         public string zip;
     }
 }

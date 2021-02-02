@@ -161,6 +161,7 @@
     <Compile Include="Models\jobs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\JobsMetadata.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,9 +181,11 @@
     <Compile Include="Models\publishers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PublishersMetadata.cs" />
     <Compile Include="Models\pub_info.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pub_infoMetadata.cs" />
     <Compile Include="Models\reptq1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -195,19 +198,24 @@
     <Compile Include="Models\roysched.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoyschedsMetadata.cs" />
     <Compile Include="Models\sales.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SalesMetadata.cs" />
     <Compile Include="Models\SecondQueryClass.cs" />
     <Compile Include="Models\stores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StoresMetadata.cs" />
     <Compile Include="Models\titleauthor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TitleAuthorsMetadata.cs" />
     <Compile Include="Models\titles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TitlesMetadata.cs" />
     <Compile Include="Models\titleview.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
