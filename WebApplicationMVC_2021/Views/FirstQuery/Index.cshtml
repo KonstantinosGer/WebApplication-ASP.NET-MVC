@@ -56,12 +56,9 @@
         <th>
             Author's contract
         </th>
-        <!--<th>
-            Book's title
-        </th>-->
     </tr>
 
-    @foreach (var item in /*Model*/ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.FirstQueryClass>)
+    @foreach (var item in ViewData["jointables"] as IEnumerable<WebApplicationMVC_2021.Models.FirstQueryClass>)
     {
         <tr>
             <td>
@@ -94,9 +91,6 @@
             <td>
                 @item.authorslist.contract
             </td>
-            <!--<td>
-                item.saleslist.title_id
-            </td>-->
         </tr>
     }
 

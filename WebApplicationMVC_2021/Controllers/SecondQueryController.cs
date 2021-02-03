@@ -19,7 +19,6 @@ namespace WebApplicationMVC_2021.Controllers
 
             string prefix = "";
             string suffix = "";
-            //int x = 0;
             DateTime startDate = new DateTime(1992, 06, 15);
             DateTime endDate = DateTime.Now;
             if (Request.QueryString["storeNamePrefix"] != null && Request.QueryString["storeNamePrefix"] != "")
@@ -49,13 +48,9 @@ namespace WebApplicationMVC_2021.Controllers
                                       join s in saleslist on st.stor_id equals s.stor_id
                                       join t in titleslist on s.title_id equals t.title_id
                                       where s.ord_date >= startDate && s.ord_date <= endDate && st.stor_name.StartsWith(prefix) && st.stor_name.EndsWith(suffix)
-                                      //group s by new { /*ta.au_id, a.phone*/ s, ta, a } into g
-                                      //group s by new { s, ta, a, s.title_id, a.au_id, a.au_lname, a.au_fname, a.phone } into g
                                       group s by new { s, st, t} into g
                                       select new SecondQueryClass
                                       {
-                                          //saleslist = g.Key.s,
-                                          //titleauthorlist = g.Key.ta,
                                           saleslist = g.Key.s,
                                           storeslist = g.Key.st,
                                           titleslist = g.Key.t

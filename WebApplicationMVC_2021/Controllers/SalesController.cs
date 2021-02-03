@@ -21,63 +21,7 @@ namespace WebApplicationMVC_2021.Controllers
         public ActionResult Index()
         {
             var sales = db.sales.Include(s => s.stores).Include(s => s.titles);
-
-            IQueryable<sales> list = db.sales;
-            IQueryable<titleauthor> listTitleAuthors = db.titleauthor;
-            IQueryable<authors> listAuthors = db.authors;
-
-            if (Request.QueryString["numberX"] != null && Request.QueryString["numberX"] != "")
-            {
-                int.TryParse(Request.QueryString["numberX"], out int numberx);
-                //var sortedList = list.OrderByDescending(m => m.qty).ToList();
-            
-                //List<sales> subList = sortedList.GetRange(0, numberx);
-
-
-                //foreach (var element in subList)
-                //{
-                //    list.Append(element);
-                //}
-                list = list.Where(m => m.qty > numberx);
-
-            }
-
-            if (Request.QueryString["dateFrom"] != null && Request.QueryString["dateFrom"] != "")
-            {
-                DateTime.TryParse(Request.QueryString["dateFrom"], out DateTime datefrom);
-                list = list.Where(m => m.ord_date >= datefrom);
-            }
-
-            if (Request.QueryString["dateTo"] != null && Request.QueryString["dateTo"] != "")
-            {
-                DateTime.TryParse(Request.QueryString["dateTo"], out DateTime dateto);
-                list = list.Where(m => m.ord_date <= dateto);
-            }
-
-            /*
-            var innerJoin = list.Join(// outer sequence 
-                      listTitleAuthors,  // inner sequence 
-                      sales => sales.title_id,    // outerKeySelector
-                      titleauthor => titleauthor.title_id,  // innerKeySelector
-                      (sales, titleauthor) => new  // result selector
-                      {
-                          //salesTitleId = sales.title_id,
-                          //titleAuthorId = titleauthor.title_id
-                          salesOrderDate = sales.ord_date,
-                          salesQty = sales.qty,
-                          salesPayterms = sales.payterms
-                          
-                      });
-
-            foreach (var obj in innerJoin)
-            {
-                Console.WriteLine("{0} - {1} - {2}", obj.salesOrderDate, obj.salesQty, obj.salesPayterms);
-                //list.Append( obj.salesOrderDate)
-            }
-            */
-
-
-            return View(list.ToList());  
+            return View(sales.ToList());  
         }
 
         // GET: Sales/Details/5

@@ -19,10 +19,6 @@ namespace WebApplicationMVC_2021.Models
         {
             get; set;
         }
-        //public short Header { get; internal set; }
-        //public object TotalQuantity { get; internal set; }
-        //public short Author_id_row { get; internal set; }
-        //public short Author_phone_row { get; internal set; }
         public object Amount { get; internal set; }
     }
 }
