@@ -10,4 +10,4 @@ This website was created with Visual C#, using the Model View Controller (MVC) a
 ![MVC Screenshot (5)](https://github.com/KonstantinosGer/WebApplication-ASP.NET-MVC/blob/master/Screenshots/MVC%20Screenshot%20(5).png | width=100)
 
 
-<img src="https://github.com/KonstantinosGer/WebApplication-ASP.NET-MVC/blob/master/Screenshots/MVC%20Screenshot%20(1).png" width="200" height="400" />
+<img src="https://github.com/KonstantinosGer/WebApplication-ASP.NET-MVC/blob/master/Screenshots/MVC%20Screenshot%20(1).png" width="400" height="400" />
